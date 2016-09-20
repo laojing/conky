@@ -1,0 +1,5 @@
+==========
+台式机配置
+==========
+
+sutincludeconfig=../Resource/desktop

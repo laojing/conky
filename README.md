@@ -1,4 +1,0 @@
-conky
-=====
-
-Beautiful Desktop

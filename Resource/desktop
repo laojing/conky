@@ -1,0 +1,155 @@
+# ====================================================================
+# 全局配置
+#
+# ====================================================================
+update_interval 1
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 1
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+# ====================================================================
+# 文字配置
+#
+# ====================================================================
+use_xft yes
+xftfont LiHei Pro:size=11
+override_utf8_locale yes
+text_buffer_size 2048
+background yes
+
+ 
+# ====================================================================
+# 窗口配置 
+#
+# ====================================================================
+own_window_class Conky
+own_window yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+alignment tr
+gap_x 50
+gap_y 150
+minimum_size 1500 800
+default_bar_size 60 8
+
+# ====================================================================
+# 图像设置 
+#
+# ====================================================================
+draw_shades no
+
+ 
+# ====================================================================
+# 显示当前日期 
+#
+# ====================================================================
+TEXT
+${alignr 20}${font LiHei Pro:size=36}${color1}${time %H:%M:%S}${font}${color}
+${voffset 10}
+${font LiHei Pro:size=16}${execi 3600 LANG=zh_CN.UTF8 date +'%Y年%m月%d日，第%W周，第%j天，星期%u'}${font}
+${voffset 230}
+ 
+# ====================================================================
+# 显示所有处理器的工作情况 
+#
+# ====================================================================
+${goto 1170}处理器01: ${cpu cpu1}% \
+${goto 1280}处理器07: ${cpu cpu7}% \
+${goto 1390}温度: ${execi 30 sensors | grep 'Core 0' | cut -c18-19}°C
+
+${voffset 5} \
+${goto 1170}处理器02: ${cpu cpu2}% \
+${goto 1280}处理器08: ${cpu cpu8}% \
+${goto 1390}温度: ${execi 30 sensors | grep 'Core 1' | cut -c18-19}°C
+
+${voffset 5} \
+${goto 1170}处理器03: ${cpu cpu3}% \
+${goto 1280}处理器09: ${cpu cpu9}% \
+${goto 1390}温度: ${execi 30 sensors | grep 'Core 2' | cut -c18-19}°C
+
+${voffset 5} \
+${goto 1170}处理器04: ${cpu cpu4}% \
+${goto 1280}处理器10: ${cpu cpu10}% \
+${goto 1390}温度: ${execi 30 sensors | grep 'Core 3' | cut -c18-19}°C
+
+${voffset 5} \
+${goto 1170}处理器05: ${cpu cpu5}% \
+${goto 1280}处理器11: ${cpu cpu11}% \
+${goto 1390}温度: ${execi 30 sensors | grep 'Core 4' | cut -c18-19}°C
+
+${voffset 5} \
+${goto 1170}处理器06: ${cpu cpu6}% \
+${goto 1280}处理器12: ${cpu cpu12}% \
+${goto 1390}温度: ${execi 30 sensors | grep 'Core 5' | cut -c18-19}°C
+
+# ====================================================================
+# 显示网络地址及流量 
+#
+# ====================================================================
+${voffset 30}
+${goto 1170}上传: ${upspeed eno1} \
+${goto 1320}总量: ${totalup eno1}
+
+${voffset 5} \
+${goto 1170}下载: ${downspeed eno1} \
+${goto 1320}总量: ${totaldown eno1}
+
+${voffset 5} \
+${goto 1170}地址: ${addr eno1}
+
+# ====================================================================
+# 音量状态 
+#
+# ====================================================================
+${voffset 20}
+${goto 1170}音量: ${execi 1 amixer get Master | grep "Mono:" | cut -d '[' -f 2 | sed s/]//} \
+${goto 1270}开关: ${execi 1 amixer get Master | grep "Mono:" | cut -d '[' -f 4 | sed s/]//}
+
+# ====================================================================
+# 内存使用情况 
+#
+# ====================================================================
+${voffset 5} \
+${goto 1170}内存: ${memperc}% \
+${goto 1270}空闲: ${memeasyfree} \
+${goto 1380}使用: ${mem}
+
+# ====================================================================
+# 硬盘使用情况
+#
+# ====================================================================
+${voffset 5} \
+${goto 1170}硬盘: ${fs_used_perc /home}% \
+${goto 1270}空闲: ${fs_free /home} \
+${goto 1380}使用: ${fs_used /home}
+
+# ====================================================================
+# 天气信息图片
+#
+# ====================================================================
+${image ~/.conky/updatetime.png -p 1350,220 -s 230x40}
+${image ~/.conky/wea1.png -p 590,100 -s 150x120}
+${image ~/.conky/wea2.png -p 780,100 -s 150x120}
+${image ~/.conky/wea3.png -p 970,100 -s 150x120}
+${image ~/.conky/wea4.png -p 1160,100 -s 150x120}
+${image ~/.conky/wea5.png -p 1350,100 -s 150x120}
+
+# ====================================================================
+# 几个配景图片 
+#
+# ====================================================================
+${image ~/.conky/date.png -p 0,60 -s 1500x3}
+${image ~/.conky/base.png -p 1070,300 -s 439x290}
+${image ~/.conky/base.png -p 1070,560 -s 439x160}
+${image ~/.conky/base.png -p 1070,700 -s 439x160}
+${image ~/.conky/task.png -p 1100,420 -s 45x45}
+${image ~/.conky/wlan.png -p 1100,620 -s 45x45}
+${image ~/.conky/memory.png -p 1100,750 -s 45x45}
+
+

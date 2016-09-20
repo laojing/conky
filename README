@@ -1,0 +1,31 @@
+========
+系统概述
+========
+
+将电脑的主要概览信息和近六天的天气预报显示到桌面上，主要借助Conky软件。
+
+最好用下面这张图片，左上角的绿色区域显示动态信息，效果非常好：
+
+.. sutimage:: images/green.jpg
+    :label: image16
+    :alt: 背景图片
+    :width: 640
+    :height: 400
+    :halign: center
+    :caption: 背景图片
+
+最后效果如下：
+
+.. sutimage:: images/main.jpg
+    :label: image17
+    :alt: 最终效果
+    :width: 640
+    :height: 400
+    :halign: center
+    :caption: 最终效果
+
+-----------
+版本1.0说明
+-----------
+
+* 项目初始化

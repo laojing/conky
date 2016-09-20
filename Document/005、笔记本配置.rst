@@ -1,0 +1,6 @@
+==========
+笔记本配置
+==========
+
+sutincludeconfig=../Resource/notebook
+

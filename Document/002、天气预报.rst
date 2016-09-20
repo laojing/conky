@@ -1,0 +1,26 @@
+========
+天气预报
+========
+
+通过中国气象局获得天气预报数据，获得沈阳未来7天的天气情况，数据地址是：http://www.weather.com.cn/weather/101070101.shtml。
+
+--------
+安装方法
+--------
+
+天气预报的更新设置成系统的定时执行任务，每2个小时执行一次，定时执行任务利用cron服务实现（用法参见linux细节）。
+
+.. code-block:: bash
+
+    0 */2 * * * wget -q -O /home/laojing/.conky/weather.com.cn \
+    http://www.weather.com.cn/weather/101070101.shtml
+    0 */2 * * * groovy /home/laojing/.conky/weather.groovy
+
+
+拷贝一个字体文件到.conky目录下，起名字为lihei.ttf。
+
+----------------
+天气预报解析程序
+----------------
+
+sutincludegroovy=../Source/weather.groovy

@@ -1,0 +1,28 @@
+========
+常用命令
+========
+
+--------------
+获得日期字符串
+--------------
+
+.. code-block:: bash
+
+    LANG=zh_CN.UTF8 date +'%Y年%m月%d日，第%W周，第%j天，星期%a'
+
+--------------
+获得处理器温度
+--------------
+
+.. code-block:: bash
+
+    sensors | grep 'Core 0' | cut -c16-17
+
+------------
+获得音量大小
+------------
+
+.. code-block:: bash
+
+    amixer get Master | grep "Front Left:" | cut -d '[' -f 2 | sed s/]//
+
