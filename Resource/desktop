@@ -108,8 +108,8 @@ ${goto 1170}地址: ${addr eno1}
 #
 # ====================================================================
 ${voffset 20}
-${goto 1170}音量: ${execi 1 amixer get Master | grep "Mono:" | cut -d '[' -f 2 | sed s/]//} \
-${goto 1270}开关: ${execi 1 amixer get Master | grep "Mono:" | cut -d '[' -f 4 | sed s/]//}
+${goto 1170}音量: ${execi 1 amixer get Master | grep "Front Left:" | cut -d '[' -f 2 | sed s/]//} \
+${goto 1270}开关: ${execi 1 amixer get Master | grep "Front Left:" | cut -d '[' -f 3 | sed s/]//}
 
 # ====================================================================
 # 内存使用情况 
